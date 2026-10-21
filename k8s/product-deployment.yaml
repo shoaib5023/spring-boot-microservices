@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-service
+  namespace: practice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product-service
+  template:
+    metadata:
+      labels:
+        app: product-service
+    spec:
+      containers:
+        - name: product-service
+          image: shoaib5023/product-service:1.0.0
+          ports:
+            - containerPort: 8083
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: kubernetes
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: product-jwt-secret
+                  key: JWT_SECRET
+          envFrom:
+            - configMapRef:
+                name: microservices-config

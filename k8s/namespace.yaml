@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: practice
+  labels:
+    app: spring-boot-microservices
+    environment: development

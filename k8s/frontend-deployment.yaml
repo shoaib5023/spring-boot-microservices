@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-frontend
+  namespace: practice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-frontend
+  template:
+    metadata:
+      labels:
+        app: auth-frontend
+    spec:
+      containers:
+        - name: auth-frontend
+          image: shoaib5023/auth-frontend:1.0.0
+          ports:
+            - containerPort: 8082
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: kubernetes
+          envFrom:
+            - configMapRef:
+                name: microservices-config
