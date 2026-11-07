@@ -19,6 +19,16 @@ spec:
           ports:
             - containerPort: 8083
           env:
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: microservices-config
+                  key: PRODUCT_DB_URL
+            - name: SERVER_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: microservices-config
+                  key: PRODUCT_SERVER_PORT
             - name: SPRING_PROFILES_ACTIVE
               value: kubernetes
             - name: JWT_SECRET

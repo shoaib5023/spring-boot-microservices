@@ -1,0 +1,27 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: harness-deployer
+  namespace: practice
+rules:
+  - apiGroups: ["apps"]
+    resources: ["deployments", "replicasets"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
+  - apiGroups: [""]
+    resources: ["pods", "services", "configmaps", "events"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: harness-deployer
+  namespace: practice
+subjects:
+  - kind: ServiceAccount
+    name: harness-deployer
+    namespace: practice
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: harness-deployer

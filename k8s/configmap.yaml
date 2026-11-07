@@ -8,7 +8,7 @@ data:
 
   # Auth Service
   AUTH_SERVER_PORT: "8082"
-  AUTH_DB_URL: "jdbc:mysql://auth-db:3306/lloyds_products"
+  AUTH_DB_URL: "jdbc:mysql://auth-db:3306/lloyds_auth"
 
   # Product Service
   PRODUCT_SERVER_PORT: "8083"

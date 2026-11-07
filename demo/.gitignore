@@ -40,6 +40,8 @@ build/
 !.env.example
 application-local.properties
 application-local.yml
+ca.crt
+
 
 # Java / Maven
 **/target/
