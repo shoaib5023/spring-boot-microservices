@@ -27,12 +27,12 @@ spec:
             - name: DB_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: auth-db-secret
+                  name: auth-db-username-secret
                   key: DB_USERNAME
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: auth-db-secret
+                  name: auth-db-password-secret
                   key: DB_PASSWORD
             - name: SERVER_PORT
               valueFrom:

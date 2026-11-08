@@ -1,0 +1,5 @@
+{
+  "data": {
+    "AUTH_DB_URL": "jdbc:mysql://host.docker.internal:3307/auth_db"
+  }
+}
