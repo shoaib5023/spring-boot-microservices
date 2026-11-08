@@ -24,6 +24,16 @@ spec:
                 configMapKeyRef:
                   name: microservices-config
                   key: AUTH_DB_URL
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: auth-db-secret
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: auth-db-secret
+                  key: DB_PASSWORD
             - name: SERVER_PORT
               valueFrom:
                 configMapKeyRef:
